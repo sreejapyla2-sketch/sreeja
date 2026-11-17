@@ -1,0 +1,462 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sreeja | Personal Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --pink: #e84393;
+    --purple: #805ad5;
+    --dark: #29243a;
+    --light: #fff5fa;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fffafd;
+    color: var(--dark);
+}
+
+/* Navigation */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 9%;
+    background: rgba(255,255,255,.95);
+    box-shadow: 0 3px 20px #00000008;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    color: var(--pink);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 500;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--pink);
+}
+
+/* Hero */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 20px;
+    background:
+    radial-gradient(circle at top left,#ffe0f0,transparent 40%),
+    linear-gradient(135deg,#fff5fa,#eee8ff);
+}
+
+.hero-content {
+    max-width: 800px;
+    animation: appear 1.2s ease;
+}
+
+.profile-icon {
+    width: 125px;
+    height: 125px;
+    margin: auto auto 25px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,var(--pink),var(--purple));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    color: white;
+    box-shadow: 0 10px 30px #e8439340;
+}
+
+.hero h1 {
+    font-size: clamp(40px,7vw,68px);
+    font-weight: 800;
+    color: var(--dark);
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg,var(--pink),var(--purple));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero h3 {
+    color: #8a65bc;
+    font-size: 20px;
+    margin: 12px 0;
+}
+
+.hero p {
+    max-width: 620px;
+    margin: 20px auto 30px;
+    line-height: 1.9;
+    color: #716b7e;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(90deg,var(--pink),var(--purple));
+    font-weight: 600;
+    transition: .3s;
+    box-shadow: 0 6px 18px #e8439330;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+}
+
+/* Common sections */
+section:not(.hero) {
+    padding: 85px 9%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    font-size: 36px;
+    color: var(--pink);
+}
+
+.section-heading p {
+    color: #888;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+/* About */
+.about {
+    text-align: center;
+    background: white;
+}
+
+.about-text {
+    max-width: 780px;
+    margin: auto;
+    line-height: 2;
+    font-size: 16px;
+    color: #686273;
+}
+
+/* Education */
+.education {
+    background: var(--light);
+}
+
+.edu-card {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    padding: 32px;
+    border-radius: 18px;
+    border-left: 5px solid var(--pink);
+    box-shadow: 0 10px 30px #00000008;
+    transition: .3s;
+}
+
+.edu-card:hover {
+    transform: translateY(-7px);
+}
+
+.edu-card h3 {
+    color: var(--purple);
+    margin-bottom: 14px;
+}
+
+.edu-card p {
+    line-height: 2;
+    color: #716b7e;
+}
+
+/* Skills */
+.skills {
+    background: white;
+}
+
+.skill-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.skill {
+    padding: 16px 27px;
+    border-radius: 30px;
+    background: #fff0f7;
+    color: #c42b78;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.skill:hover {
+    background: #e84393;
+    color: white;
+    transform: scale(1.06);
+}
+
+/* Hobbies */
+.hobbies {
+    background: var(--light);
+}
+
+.hobby-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+    gap: 25px;
+}
+
+.hobby-card {
+    background: white;
+    padding: 35px 22px;
+    text-align: center;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px #00000008;
+    transition: .3s;
+}
+
+.hobby-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px #e8439320;
+}
+
+.hobby-card .emoji {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.hobby-card h3 {
+    color: var(--pink);
+    margin-bottom: 10px;
+}
+
+.hobby-card p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #777;
+}
+
+/* Contact */
+.contact {
+    text-align: center;
+    background: linear-gradient(135deg,#fbc2eb,#c7b7ff);
+}
+
+.contact h2 {
+    font-size: 38px;
+    color: #6f337a;
+}
+
+.contact p {
+    margin: 15px 0 25px;
+    color: #5d466c;
+}
+
+/* Footer */
+footer {
+    background: #29243a;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    font-size: 13px;
+    line-height: 2;
+}
+
+/* Animation */
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile */
+@media(max-width:650px) {
+    nav {
+        flex-direction: column;
+        gap: 14px;
+        padding: 15px 5%;
+    }
+
+    nav ul {
+        gap: 13px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    section:not(.hero) {
+        padding: 65px 7%;
+    }
+
+    .section-heading h2 {
+        font-size: 29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="logo">Sreeja.</div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Home -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="profile-icon">🌸</div>
+        <h1>Hello, I'm <span>Sreeja!</span></h1>
+        <h3>Student | Music Lover | Dreamer</h3>
+        <p>
+            Welcome to my little corner of the internet!
+            I am a first-year Diploma student passionate about
+            learning, music, creativity and exploring new opportunities.
+        </p>
+        <a href="#about" class="btn">Explore My Portfolio →</a>
+    </div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+    <div class="section-heading">
+        <h2>About Me 🌷</h2>
+        <p>A little introduction about myself</p>
+    </div>
+
+    <p class="about-text">
+        Hello! My name is Sreeja. I am currently pursuing
+        my first year of Diploma at A.A.N.M and V.V.R.S.R College.
+        I am an enthusiastic student who enjoys learning new things
+        and exploring technology. Music is one of my biggest passions.
+        I love singing and listening to songs. My dream is to grow,
+        improve my knowledge and achieve great things in life.
+    </p>
+</section>
+
+<!-- Education -->
+<section class="education" id="education">
+    <div class="section-heading">
+        <h2>My Education 🎓</h2>
+        <p>My academic journey</p>
+    </div>
+
+    <div class="edu-card">
+        <h3>Diploma - First Year</h3>
+        <p><strong>College:</strong> A.A.N.M and V.V.R.S.R College</p>
+        <p><strong>Branch:</strong> Artificial Intelligence and Machine Learning</p>
+        <p><strong>Status:</strong> Currently Studying</p>
+    </div>
+</section>
+
+<!-- Skills -->
+<section class="skills" id="skills">
+    <div class="section-heading">
+        <h2>My Interests ✨</h2>
+        <p>Things I enjoy learning and exploring</p>
+    </div>
+
+    <div class="skill-container">
+        <div class="skill">💻 Technology</div>
+        <div class="skill">🎨 Creativity</div>
+        <div class="skill">🎵 Music</div>
+        <div class="skill">📚 Learning</div>
+        <div class="skill">🌱 Personal Growth</div>
+    </div>
+</section>
+
+<!-- Hobbies -->
+<section class="hobbies" id="hobbies">
+    <div class="section-heading">
+        <h2>My Hobbies 💕</h2>
+        <p>What makes me happy</p>
+    </div>
+
+    <div class="hobby-container">
+        <div class="hobby-card">
+            <div class="emoji">🎤</div>
+            <h3>Singing</h3>
+            <p>I love singing songs and expressing my feelings through music.</p>
+        </div>
+
+        <div class="hobby-card">
+            <div class="emoji">🎧</div>
+            <h3>Listening Music</h3>
+            <p>Music makes me feel happy, relaxed and refreshed.</p>
+        </div>
+
+        <div class="hobby-card">
+            <div class="emoji">💻</div>
+            <h3>Exploring Technology</h3>
+            <p>I enjoy discovering new things about computers and technology.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+    <h2>Thank You for Visiting! 💖</h2>
+    <p>Keep dreaming, keep learning and keep shining!</p>
+    <a href="#home" class="btn">Back to Top ↑</a>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 Sreeja | Personal Portfolio</p>
+    <p>Designed with ❤️ and creativity</p>
+</footer>
+
+</body>
+</html>
